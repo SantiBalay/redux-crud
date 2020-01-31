@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+//Redux
+import {Provider} from 'react-redux'
+import store from './store'
+
+//Components
+import Header from './components/Header'
+import Productos from './components/Productos'
+import NuevoProducto from './components/NuevoProducto'
+import EditarProducto from './components/EditProducto'
+
+
+//Router
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
+
+class App extends Component {
+  state = {  }
+  render() { 
+
+    return (  
+      <Provider store={store}>
+        <Router>
+          <Fragment>
+              <Header/>
+          </Fragment>
+
+          <div className="container">
+            <Switch>
+                <Route exact path="/" component={Productos}/>
+                <Route exact path="/productos/nuevo" component={NuevoProducto}/>
+                <Route exact path="/productos/editar/:id" component={EditarProducto}/>
+            </Switch>
+          </div>
+
+        </Router>
+      </Provider>
+    );
+  }
 }
-
+ 
 export default App;

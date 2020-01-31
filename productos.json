@@ -1,0 +1,19 @@
+{
+  "productos": [
+    {
+      "nombre": "Pela Cables",
+      "precio": "20",
+      "id": 2
+    },
+    {
+      "nombre": "Algo",
+      "precio": "12",
+      "id": 3
+    },
+    {
+      "nombre": "12",
+      "precio": "20",
+      "id": 4
+    }
+  ]
+}
